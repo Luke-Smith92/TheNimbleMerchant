@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{ product.name }}</h1>
+
+{% if product.category %}
+    <p><strong>Category:</strong> {{ product.category.friendly_name }}</p>
+{% endif %}
+
+<p>{{ product.description }}</p>
+
+<p><strong>Price:</strong> £{{ product.price }}</p>
+
+<p><strong>Stock:</strong> {{ product.stock_quantity }}</p>
+
+<a href="{% url 'products' %}">Back to Products</a>
+
+{% endblock %}
