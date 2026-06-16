@@ -1,15 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>The Nimble Merchant</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-    <h1>The Nimble Merchant</h1>
+{% block content %}
 
-    <p>
-        Your travelling tabletop gaming merchant.
-    </p>
+<h2>Welcome to The Nimble Merchant</h2>
 
-</body>
-</html>
+<p>
+    Your travelling tabletop gaming merchant.
+</p>
+
+<p>
+    Browse miniatures, dice, rulebooks and more.
+</p>
+
+<a href="{% url 'products' %}">
+    Browse Products
+</a>
+
+{% endblock %}

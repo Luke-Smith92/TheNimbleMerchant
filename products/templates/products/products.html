@@ -1,3 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+
 <h1>Products</h1>
 
 {% for product in products %}
@@ -9,3 +13,5 @@
 {% empty %}
     <p>No products available.</p>
 {% endfor %}
+
+{% endblock %}
