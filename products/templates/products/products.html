@@ -7,7 +7,7 @@
 {% for product in products %}
     <div>
 <h2> <a href="{% url 'product_detail' product.id %}"> {{ product.name }}</a> </h2>
-        <p>{{ product.description }}</p>
+        <p>{{ product.description|truncatechars:80 }}</p>
         <p>£{{ product.price }}</p>
     </div>
 {% empty %}
