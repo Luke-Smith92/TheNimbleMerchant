@@ -16,4 +16,11 @@
 
 <a href="{% url 'products' %}">Back to Products</a>
 
+<form method="POST" action="{% url 'add_to_cart' product.id %}">
+    {% csrf_token %}
+    <label for="quantity">Quantity:</label>
+    <input type="number" name="quantity" value="1" min="1" max="{{ product.stock_quantity }}">
+    <button type="submit">Add to Cart</button>
+</form>
+
 {% endblock %}
