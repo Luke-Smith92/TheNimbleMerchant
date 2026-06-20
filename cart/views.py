@@ -40,4 +40,4 @@ def add_to_cart(request, product_id):
 
     request.session['cart'] = cart
 
-    return redirect('view_cart')
+    return redirect('product_detail', product_id=product_id)
