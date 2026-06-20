@@ -6,12 +6,39 @@
 
 {% if cart_items %}
     {% for item in cart_items %}
-        <div>
-            <h2>{{ item.product.name }}</h2>
-            <p>Quantity: {{ item.quantity }}</p>
-            <p>Price: £{{ item.product.price }}</p>
-            <p>Subtotal: £{{ item.subtotal }}</p>
-        </div>
+       <div>
+
+    <h2>{{ item.product.name }}</h2>
+
+    <p>Price: £{{ item.product.price }}</p>
+
+    <form method="POST"
+          action="{% url 'update_cart' item.product.id %}">
+        {% csrf_token %}
+
+        <input type="number"
+               name="quantity"
+               value="{{ item.quantity }}"
+               min="1">
+
+        <button type="submit">
+            Update
+        </button>
+    </form>
+
+    <p>Subtotal: £{{ item.subtotal }}</p>
+
+    <form method="POST"
+          action="{% url 'remove_from_cart' item.product.id %}">
+        {% csrf_token %}
+        <button type="submit">
+            Remove
+        </button>
+    </form>
+
+</div>
+
+<hr>
     {% endfor %}
 
     <h3>Total: £{{ total }}</h3>

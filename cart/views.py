@@ -41,3 +41,28 @@ def add_to_cart(request, product_id):
     request.session['cart'] = cart
 
     return redirect('product_detail', product_id=product_id)
+
+def update_cart(request, product_id):
+    """Update product quantity in cart."""
+
+    quantity = int(request.POST.get('quantity'))
+    cart = request.session.get('cart', {})
+
+    if quantity > 0:
+        cart[str(product_id)] = quantity
+    else:
+        cart.pop(str(product_id), None)
+
+    request.session['cart'] = cart
+    return redirect('view_cart')
+
+def remove_from_cart(request, product_id):
+    """Remove item from cart."""
+
+    cart = request.session.get('cart', {})
+
+    cart.pop(str(product_id), None)
+
+    request.session['cart'] = cart
+
+    return redirect('view_cart')
