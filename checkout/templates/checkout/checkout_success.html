@@ -4,10 +4,16 @@
 
 <h1>Order Successful</h1>
 
-<p>Thank you for your order.</p>
+<p>Thank you for your order, {{ order.full_name }}.</p>
 
-<a href="{% url 'products' %}">
-    Continue Shopping
-</a>
+<h2>Order Summary</h2>
+
+<p><strong>Order Number:</strong> {{ order.id }}</p>
+<p><strong>Email:</strong> {{ order.email }}</p>
+<p><strong>Total:</strong> £{{ order.order_total }}</p>
+
+<p>Your order has been received and is now being prepared by The Nimble Merchant.</p>
+
+<a href="{% url 'products' %}">Continue Shopping</a>
 
 {% endblock %}

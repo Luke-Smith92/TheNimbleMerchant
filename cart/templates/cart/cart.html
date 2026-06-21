@@ -41,7 +41,15 @@
 <hr>
     {% endfor %}
 
-    <h3>Total: £{{ total }}</h3>
+    <<h3>Order Summary</h3>
+
+<p>Subtotal: £{{ total }}</p>
+<p>Delivery: £{{ delivery }}</p>
+<p><strong>Grand Total: £{{ grand_total }}</strong></p>
+
+<p>Standard UK delivery: £3.99</p>
+<p>Estimated delivery time: 3–5 working days</p>
+<p>Free delivery on orders over £50</p>
 {% else %}
     <p>Your cart is empty.</p>
 {% endif %}

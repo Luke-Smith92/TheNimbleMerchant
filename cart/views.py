@@ -1,12 +1,12 @@
+from decimal import Decimal
 from django.shortcuts import redirect, render
 from products.models import Product
-
 
 def view_cart(request):
     """Display the shopping cart."""
     cart = request.session.get('cart', {})
     cart_items = []
-    total = 0
+    total = Decimal("0.00")
 
     for product_id, quantity in cart.items():
         product = Product.objects.get(id=product_id)
@@ -19,9 +19,18 @@ def view_cart(request):
             'subtotal': subtotal,
         })
 
+    if total >= Decimal("50.00"):
+        delivery = Decimal("0.00")
+    else:
+        delivery = Decimal("3.99")
+
+    grand_total = total + delivery
+
     context = {
         'cart_items': cart_items,
         'total': total,
+        'delivery': delivery,
+        'grand_total': grand_total,
     }
 
     return render(request, 'cart/cart.html', context)
