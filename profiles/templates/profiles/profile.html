@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>My Profile</h1>
+
+{% if user.is_authenticated %}
+    <p>Welcome, {{ user.username }}.</p>
+    <p>This page will later show your order history.</p>
+{% else %}
+    <p>Please <a href="{% url 'login' %}">login</a> to view your profile.</p>
+{% endif %}
+
+{% endblock %}
