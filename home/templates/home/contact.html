@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Contact The Nimble Merchant</h1>
+
+<p>
+    Need help with an order, delivery question, payment issue or general enquiry?
+    The Nimble Merchant is here to help.
+</p>
+
+<h2>Customer Support</h2>
+
+<p><strong>Email:</strong> support@thenimblemerchant.com</p>
+<p><strong>Response Time:</strong> 1–2 working days</p>
+
+<p>
+    If your message is about an existing order, please include your order number
+    so we can find your details quickly.
+</p>
+
+<h2>Send Us a Message</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" required>
+
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" required>
+
+    <label for="subject">Subject</label>
+    <input type="text" name="subject" id="subject" required>
+
+    <label for="message">Message</label>
+    <textarea name="message" id="message" rows="5" required></textarea>
+
+    <button type="submit">Send Message</button>
+</form>
+
+<h2>Follow The Merchant</h2>
+
+<p>
+    <a href="#">Instagram</a> |
+    <a href="#">Facebook</a> |
+    <a href="#">X / Twitter</a>
+</p>
+
+<h2>Delivery Information</h2>
+
+<p>Standard UK Delivery: £3.99</p>
+<p>Free delivery on orders over £50</p>
+<p>Estimated delivery time: 3–5 working days</p>
+
+{% endblock %}
