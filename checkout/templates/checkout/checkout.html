@@ -84,8 +84,6 @@
         } else {
             if (result.paymentIntent.status === 'succeeded') {
                 form.submit();
-               console.log(result.error);
-               errorDiv.textContent = result.error.message
             }
         }
     });

@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #f3ead7;
+    color: #2b1d0e;
+}
+
+header {
+    background: #173b2f;
+    color: #d4af37;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid #d4af37;
+}
+
+header h1 {
+    margin: 0 0 15px 0;
+}
+
+header h1 a {
+    color: #d4af37;
+    text-decoration: none;
+}
+
+nav a {
+    color: #f3ead7;
+    text-decoration: none;
+    margin: 0 12px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #d4af37;
+}
+
+main {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 25px;
+    background: #fff8e8;
+    border: 2px solid #c49a45;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+button,
+a.button {
+    background: #173b2f;
+    color: #f3ead7;
+    border: 2px solid #d4af37;
+    padding: 10px 16px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+button:hover,
+a.button:hover {
+    background: #245947;
+    color: #d4af37;
+}
+
+input,
+textarea {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    margin: 8px 0 16px 0;
+    border: 1px solid #8b6f3e;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #173b2f;
+    color: #f3ead7;
+    margin-top: 40px;
+}
+
+.logo img {
+    height: 80px;
+    border: 2px solid #d4af37;
+}
+
+.logo-link {
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+    border: none;
+    display: block;
+}
