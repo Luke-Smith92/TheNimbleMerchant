@@ -23,6 +23,7 @@ def checkout(request):
             address=request.POST.get("address"),
             town_or_city=request.POST.get("town_or_city"),
             postcode=request.POST.get("postcode"),
+            user_profile=request.user if request.user.is_authenticated else None,
         )
 
         total = Decimal("0.00")

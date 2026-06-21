@@ -1,6 +1,6 @@
 from django.db import models
 from products.models import Product
-
+from django.contrib.auth.models import User
 
 class Order(models.Model):
     full_name = models.CharField(max_length=50)
@@ -11,6 +11,12 @@ class Order(models.Model):
     postcode = models.CharField(max_length=20)
     date = models.DateTimeField(auto_now_add=True)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    user_profile = models.ForeignKey(
+    User,
+    null=True,
+    blank=True,
+    on_delete=models.SET_NULL
+)
 
     def __str__(self):
         return f"Order {self.id}"
