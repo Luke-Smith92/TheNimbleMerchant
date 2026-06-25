@@ -33,6 +33,10 @@ nav a:hover {
     color: #d4af37;
 }
 
+.logout-form {
+    margin-left: auto;
+}
+
 main {
     max-width: 1100px;
     margin: 30px auto;
@@ -77,23 +81,19 @@ footer {
     margin-top: 40px;
 }
 
-.logo img {
-    height: 80px;
-    border: 2px solid #d4af37;
-}
-
 .logo-link {
-    border: none;
-    background: none;
-    padding: 0;
+    position: absolute;
+    top: 28px;
+    left: 35px;
 }
 
 .logo {
-    height: 60px;
-    width: auto;
-    border: none;
-    display: block;
+    width: 95px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
 }
+
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));

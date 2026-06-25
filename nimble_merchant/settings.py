@@ -125,6 +125,11 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = BASE_DIR / 'media'
+
 STRIPE_PUBLIC_KEY = ""
 STRIPE_SECRET_KEY = ""
 STRIPE_CURRENCY = "gbp"
