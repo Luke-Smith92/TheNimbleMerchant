@@ -6,37 +6,43 @@
 
 {% if cart_items %}
     {% for item in cart_items %}
-       <div>
+    <div class="cart-item">
 
-    <h2>{{ item.product.name }}</h2>
+    {% if item.product.image %}
+        <img src="{{ item.product.image.url }}"
+             alt="{{ item.product.name }}"
+             class="cart-product-image">
+    {% endif %}
 
-    <p>Price: £{{ item.product.price }}</p>
+    <div class="cart-item-details">
+        <h2>{{ item.product.name }}</h2>
 
-    <form method="POST"
-          action="{% url 'update_cart' item.product.id %}">
-        {% csrf_token %}
+        <p>Price: £{{ item.product.price }}</p>
 
-        <input type="number"
-               name="quantity"
-               value="{{ item.quantity }}"
-               min="1">
+        <form method="POST"
+              action="{% url 'update_cart' item.product.id %}">
+            {% csrf_token %}
 
-        <button type="submit">
-            Update
-        </button>
-    </form>
+            <input type="number"
+                   name="quantity"
+                   value="{{ item.quantity }}"
+                   min="1">
 
-    <p>Subtotal: £{{ item.subtotal }}</p>
+            <button type="submit">Update</button>
+        </form>
 
-    <form method="POST"
-          action="{% url 'remove_from_cart' item.product.id %}">
-        {% csrf_token %}
-        <button type="submit">
-            Remove
-        </button>
-    </form>
+        <p>Subtotal: £{{ item.subtotal }}</p>
+
+        <form method="POST"
+              action="{% url 'remove_from_cart' item.product.id %}">
+            {% csrf_token %}
+            <button type="submit">Remove</button>
+        </form>
+    </div>
 
 </div>
+
+<hr>
 
 <hr>
     {% endfor %}

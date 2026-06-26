@@ -4,6 +4,10 @@
 
 <h1>{{ product.name }}</h1>
 
+{% if product.image %}
+    <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-detail-image">
+{% endif %}
+
 {% if product.category %}
     <p><strong>Category:</strong> {{ product.category.friendly_name }}</p>
 {% endif %}
