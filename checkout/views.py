@@ -1,10 +1,12 @@
 import stripe
 from decimal import Decimal
+
 from django.conf import settings
+from django.core.mail import send_mail
 from django.shortcuts import render, redirect
+
 from .models import Order, OrderLineItem
 from products.models import Product
-from django.core.mail import send_mail
 
 
 def checkout(request):
@@ -14,7 +16,6 @@ def checkout(request):
         return redirect("view_cart")
 
     if request.method == "POST":
-
         order = Order.objects.create(
             full_name=request.POST.get("full_name"),
             email=request.POST.get("email"),
@@ -40,9 +41,10 @@ def checkout(request):
 
         order.order_total = total
         order.save()
+
         send_mail(
-    'Order Confirmation - The Nimble Merchant',
-    f'''
+            "Order Confirmation - The Nimble Merchant",
+            f"""
 Thank you for your order, {order.full_name}.
 
 Order Number: {order.id}
@@ -52,11 +54,11 @@ Order Total: £{order.order_total}
 Your order is now being processed and will be dispatched within 1-2 working days.
 
 Thank you for shopping with The Nimble Merchant.
-''',
-    'thenimblemerchant@example.com',
-    [order.email],
-    fail_silently=False,
-)
+""",
+            settings.DEFAULT_FROM_EMAIL,
+            [order.email],
+            fail_silently=False,
+        )
 
         request.session["cart"] = {}
 
