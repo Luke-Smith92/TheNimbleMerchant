@@ -7,7 +7,9 @@
 {% load static %}
 
 {% if product.image %}
-    <img src="{% static 'images/' %}{{ product.image.name|cut:'products/' }}" alt="{{ product.name }}">
+    <img src="{% static 'images/' %}{{ product.image.name|cut:'products/' }}"
+     alt="{{ product.name }}"
+     class="product-detail-image">
 {% endif %}
 
 {% if product.category %}
