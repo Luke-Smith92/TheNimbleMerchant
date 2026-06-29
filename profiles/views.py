@@ -20,7 +20,7 @@ def register(request):
                 f'Hi {user.username}, thank you for registering with The Nimble Merchant.',
                 'thenimblemerchant@example.com',
                 [user.email],
-                fail_silently=False,
+                fail_silently=True,
             )
 
             login(request, user)
