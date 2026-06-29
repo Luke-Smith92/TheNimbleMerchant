@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
@@ -8,11 +9,11 @@
     {% for item in cart_items %}
     <div class="cart-item">
 
-    {% if item.product.image %}
-        <img src="{{ item.product.image.url }}"
-             alt="{{ item.product.name }}"
-             class="cart-product-image">
-    {% endif %}
+  {% if item.product.image %}
+    <img src="{% static 'images/' %}{{ item.product.image.name|cut:'products/' }}"
+         alt="{{ item.product.name }}"
+         class="cart-product-image">
+{% endif %}
 
     <div class="cart-item-details">
         <h2>{{ item.product.name }}</h2>
