@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     'checkout',
 ]
 
-MMIDDLEWARE = [
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
