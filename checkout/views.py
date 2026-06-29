@@ -57,7 +57,7 @@ Thank you for shopping with The Nimble Merchant.
 """,
             settings.DEFAULT_FROM_EMAIL,
             [order.email],
-            fail_silently=False,
+            fail_silently=True,
         )
 
         request.session["cart"] = {}
