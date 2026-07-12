@@ -1,27 +1,65 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
 <h1>Products</h1>
 
+{% if user.is_staff %}
+    <div class="product-admin-controls">
+        <a href="{% url 'add_product' %}" class="button">
+            Add Product
+        </a>
+    </div>
+{% endif %}
+
 <div class="product-grid">
     {% for product in products %}
         <div class="product-card">
-            {% load static %}
 
-{% if product.image %}
-    <img src="{% static 'images/' %}{{ product.image.name|cut:'products/' }}" alt="{{ product.name }}">
-{% endif %}
+            {% if product.image %}
+                <img
+                    src="{% static 'images/' %}{{ product.image.name|cut:'products/' }}"
+                    alt="{{ product.name }}"
+                >
+            {% endif %}
+
             <h2>{{ product.name }}</h2>
 
-            <p>{{ product.description|truncatewords:18 }}</p>
+            <p>
+                {{ product.description|truncatewords:18 }}
+            </p>
 
             <p class="price">£{{ product.price }}</p>
 
-            <a href="{% url 'product_detail' product.id %}" class="button">
+            <a
+                href="{% url 'product_detail' product.id %}"
+                class="button"
+            >
                 View Details
             </a>
+
+            {% if user.is_staff %}
+                <div class="product-management-buttons">
+                    <a
+                        href="{% url 'edit_product' product.id %}"
+                        class="button"
+                    >
+                        Edit Product
+                    </a>
+
+                    <a
+                        href="{% url 'delete_product' product.id %}"
+                        class="button delete-button"
+                    >
+                        Delete Product
+                    </a>
+                </div>
+            {% endif %}
         </div>
+    {% empty %}
+        <p>No products are currently available.</p>
     {% endfor %}
 </div>
+
 {% endblock %}

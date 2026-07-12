@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="delete-product-section">
+    <h1>Delete Product</h1>
+
+    <p>
+        Are you sure you want to delete
+        <strong>{{ product.name }}</strong>?
+    </p>
+
+    <p>This action cannot be undone.</p>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <button type="submit" class="button delete-button">
+            Delete Product
+        </button>
+
+        <a
+            href="{% url 'product_detail' product.id %}"
+            class="button"
+        >
+            Cancel
+        </a>
+    </form>
+</section>
+
+{% endblock %}
